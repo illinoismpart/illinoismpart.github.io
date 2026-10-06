@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicaid Fluency Program</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">MP</div>
+        <span>MPART</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="students.html">Students</a>
+        <a href="training.html" class="active">Training</a>
+        <a href="news.html">News</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Medicaid Fluency Program</h1>
+    <p>How MPART prepares new researchers before they take on independent policy work.</p>
+  </div>
+
+  <div class="container">
+    <p>Medicaid is one of the largest and least legible programs in American government. It rests on a federal statute written in 1965 and amended continually since, a thick layer of federal regulation, fifty-six separate state and territorial programs, and a running stream of guidance, waivers, contracts, and court orders. Accumulating facts about it does not, by itself, make someone able to answer a question that has not been asked before.</p>
+
+    <p>The Medicaid Fluency Program is MPART's twelve-week onboarding curriculum, built to close that gap. The aim is fluency rather than coverage: the ability to take an unfamiliar Medicaid question and work out which rules govern it, where the money comes from, who decides, and where to look it up.</p>
+
+    <p>That distinction drives the design. A researcher who has memorized which benefits Illinois covers knows a fact with an expiration date. A researcher who understands why a state can or cannot limit a covered service has learned something that transfers to the next question.</p>
+
+    <h2 class="page-title" style="margin-top: 48px;">What Researchers Learn to Do</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Place a claim in its authority</h3>
+        <p>Medicaid requirements live at many levels, from federal statute down to an agency manual or a managed care contract. Knowing which level a rule sits at tells you who can change it, how long that would take, and what it would take to challenge.</p>
+      </div>
+      <div class="card">
+        <h3>Follow the money</h3>
+        <p>How the federal share is earned and when it actually arrives, where a state's own share comes from, and how a policy decision becomes a number a provider gets paid.</p>
+      </div>
+      <div class="card">
+        <h3>Defend a number</h3>
+        <p>Locate a figure, document its source and definition, reconcile it against sources that disagree, and say plainly what it does and does not measure.</p>
+      </div>
+      <div class="card">
+        <h3>Write to a neutral standard</h3>
+        <p>Name provisions by citation rather than nickname, attribute every estimate and carry its uncertainty, and keep what the law does separate from what it will cause and from whether that is desirable.</p>
+      </div>
+    </div>
+
+    <h2 class="page-title" style="margin-top: 48px;">The Standard Behind the Work</h2>
+    <div class="highlight-box">
+      <p>Write so that a reader who disagrees with you cannot tell what you think. MPART is an applied research unit, and its usefulness depends on being trusted by the agency, hospitals, health plans, advocates, and legislators of both parties at the same time. That standard is introduced at the start of the program and applied to every assignment in it.</p>
+    </div>
+
+    <h2 class="page-title" style="margin-top: 48px;">How It Is Built</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Primary sources first</h3>
+        <p>Researchers are taught to read the statute, the regulation, the state plan, and the agency notice rather than summaries of them. Secondary analysis is assigned to be read critically, with its framing named.</p>
+      </div>
+      <div class="card">
+        <h3>Illinois throughout</h3>
+        <p>Each topic is taught as a national concept and then applied immediately to Illinois, using live state material rather than worked examples.</p>
+      </div>
+      <div class="card">
+        <h3>Built not to go stale</h3>
+        <p>No figure is asserted anywhere in the curriculum. Volatile numbers are kept in a register with their sources and review dates, so the material stays accurate as the program it describes keeps changing.</p>
+      </div>
+    </div>
+
+    <h2 class="page-title" style="margin-top: 48px;">Who It Is For</h2>
+    <p>The program is designed for incoming MPART researchers and assumes no prior Medicaid or health policy background.</p>
+
+    <p>MPART recruits from public health, public administration, data analytics, statistics, social work, computer science, and related fields; what the program assumes is a willingness to open the actual document rather than read about it.</p>
+
+    <div class="highlight-box">
+      <h3>Interested in joining MPART?</h3>
+      <p>Research positions are posted on <a href="http://uis.joinhandshake.com/" target="_blank" rel="noopener">UIS Handshake</a>. See our <a href="students.html">student opportunities</a> for what MPART researchers do and how to apply.</p>
+      <p style="margin-top: 10px;"><a href="students.html">Student opportunities &rarr;</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Medical Policy Applied Research Team | University of Illinois Springfield</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="students.html">Students</a>
+      <a href="training.html">Training</a>
+      <a href="news.html">News</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.querySelector('.theme-toggle');
+      const body = document.body;
+
+      function updateTheme(theme) {
+        body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (toggle) {
+          toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          const current = body.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          updateTheme(next);
+        });
+      }
+
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        updateTheme(saved);
+      }
+    })();
+  </script>
+</body>
+</html>
