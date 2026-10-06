@@ -20,7 +20,7 @@
         <a href="news.html">News</a>
         <a href="team.html">Team</a>
         <a href="contact.html">Contact</a>
-        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        <button class="theme-toggle">🌙</button>
       </nav>
     </div>
   </header>
@@ -88,21 +88,29 @@
   </footer>
 
   <script>
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      body.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀️' : '🌙';
-    }
-
     (function() {
+      const toggle = document.querySelector('.theme-toggle');
+      const body = document.body;
+
+      function updateTheme(theme) {
+        body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (toggle) {
+          toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          const current = body.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          updateTheme(next);
+        });
+      }
+
       const saved = localStorage.getItem('theme');
       if (saved) {
-        document.body.setAttribute('data-theme', saved);
-        const toggle = document.querySelector('.theme-toggle');
-        if (toggle) toggle.textContent = saved === 'dark' ? '☀️' : '🌙';
+        updateTheme(saved);
       }
     })();
   </script>
