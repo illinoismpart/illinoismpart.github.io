@@ -303,7 +303,7 @@ footer {
 }
 
 footer a {
-  color: #93c5fd;
+  color: var(--white);
 }
 
 footer a:hover {
